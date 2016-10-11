@@ -25,7 +25,24 @@ app.get('/todos', function (req, res) {
 });
 
 // GET /todos/:id
+app.get('/todos/:id', function(req,res){
+	var todoId = parseInt(req.params.id, 10); // params.id is a string and id is a number
+	var matchedTodo;
 
+	todos.forEach(function(todo){
+		if(todo.id === todoId){
+			matchedTodo=todo;
+
+		}
+	});
+
+	if(matchedTodo){
+		res.json(matchedTodo);
+	}else{
+		res.status(404).send('Todo with id '+todoId+' not found!');
+	}
+
+});
 
 app.listen(PORT, function () {
 	console.log('Express listening on port ' + PORT + '!');
