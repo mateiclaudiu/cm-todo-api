@@ -9,8 +9,8 @@
 6 silly lifecycle todo-api@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle todo-api@1.0.0~start: todo-api@1.0.0
 8 verbose lifecycle todo-api@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle todo-api@1.0.0~start: PATH: /Users/claudiu/.nvm/versions/node/v6.0.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/claudiu/Optis/Udemy/NodeJS/todo-api/node_modules/.bin:/Users/claudiu/.nvm/versions/node/v6.0.0/bin:/Users/claudiu/.nvm/versions/node/v6.0.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/sp_cmdln
-10 verbose lifecycle todo-api@1.0.0~start: CWD: /Users/claudiu/Optis/Udemy/NodeJS/todo-api
+9 verbose lifecycle todo-api@1.0.0~start: PATH: /Users/claudiu/.nvm/versions/node/v6.0.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/claudiu/Optis/Udemy/NodeJS/todo-api-sequelize/node_modules/.bin:/Users/claudiu/.nvm/versions/node/v6.0.0/bin:/Users/claudiu/.nvm/versions/node/v6.0.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/sp_cmdln
+10 verbose lifecycle todo-api@1.0.0~start: CWD: /Users/claudiu/Optis/Udemy/NodeJS/todo-api-sequelize
 11 silly lifecycle todo-api@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle todo-api@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle todo-api@1.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:850:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
 15 verbose pkgid todo-api@1.0.0
-16 verbose cwd /Users/claudiu/Optis/Udemy/NodeJS/todo-api
+16 verbose cwd /Users/claudiu/Optis/Udemy/NodeJS/todo-api-sequelize
 17 error Darwin 15.6.0
 18 error argv "/Users/claudiu/.nvm/versions/node/v6.0.0/bin/node" "/Users/claudiu/.nvm/versions/node/v6.0.0/bin/npm" "start"
 19 error node v6.0.0
