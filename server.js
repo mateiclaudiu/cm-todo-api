@@ -131,7 +131,7 @@ app.post('/users', function(req, res) {
 	var body = _.pick(req.body, 'email', 'password'); //keep only the given values
 
 	db.user.create(body).then(function(user) {
-			res.json(user.toJSON())
+			res.json(user.toPublicJSON()) //instance method created in user.js
 		},
 		function(err) {
 			res.status(400).json(err);
@@ -141,7 +141,7 @@ app.post('/users', function(req, res) {
 
 
 db.sequelize.sync({
-	logging: console.log
+	logging: console.log, 
 }).then(function() {
 	app.listen(PORT, function() {
 		console.log('Express listening on port ' + PORT + '!');
