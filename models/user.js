@@ -64,6 +64,28 @@ module.exports = function(sequelize, DataTypes) {
 						return reject();
 					})
 				});
+			},
+			findByToken: function(token) {
+				return new Promise(function(resolve, reject) {
+					try {
+						var decodedJWT = jwt.verify(token, 'azerty');
+						var bytes = cryptojs.AES.decrypt(decodedJWT.token, 'abc123!@#!');
+						var tokenData = JSON.parse(bytes.toString(cryptojs.enc.Utf8));
+
+						user.findById(tokenData.id).then(function(user) {
+								if (user) {
+									resolve(user);
+								} else {
+									reject();
+								}
+							},
+							function(err) {
+								reject();
+							})
+					} catch (err) {
+						reject();
+					}
+				});
 			}
 		},
 		instanceMethods: {
@@ -81,10 +103,12 @@ module.exports = function(sequelize, DataTypes) {
 						id: this.get('id'),
 						type: type
 					});
-					var encryptedData = cryptojs.AES.encrypt(stringData,'abc123!@#!').toString();
+					var encryptedData = cryptojs.AES.encrypt(stringData, 'abc123!@#!').toString();
+					console.log('encryptedData:' + encryptedData);
 					var token = jwt.sign({
-						token : encryptedData
+						token: encryptedData
 					}, 'azerty');
+					console.log('token:' + token);
 
 					return token;
 				} catch (err) {
