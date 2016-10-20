@@ -8,21 +8,19 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			validate: {
 				notEmpty: true,
-				len: [1, 250]
+				len: [1, 250],
+				descriptionIsString: function() {
+					console.log('THIS: ' + JSON.stringify(this));
+					if (!_.isString(this.description)) {
+						throw new Error(this.get('description') + 'Description must be string.')
+					}
+				}
 			}
 		},
 		completed: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 			defaultValue: false
-		}
-	}, {
-		validate: {
-			descriptionIsString: function() {
-				if (!_.isString(this.description)) {
-					throw new Error('Description must be string.')
-				}
-			}
 		}
 	});
 };
