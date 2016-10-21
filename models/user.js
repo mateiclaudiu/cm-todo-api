@@ -94,6 +94,7 @@ module.exports = function(sequelize, DataTypes) {
 				return _.pick(json, 'id', 'email', 'createdAd', 'updatedAt');
 			},
 			generateToken: function(type) {
+
 				if (!_.isString(type)) {
 					return undefined;
 				}
@@ -111,6 +112,7 @@ module.exports = function(sequelize, DataTypes) {
 					console.log('token:' + token);
 
 					return token;
+
 				} catch (err) {
 					console.error(err);
 					return undefined;
